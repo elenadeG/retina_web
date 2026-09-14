@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+/*
+  Retina — sistema de diseño
+  Tokens semánticos trasladados del sistema en Figma (51 primitivas / 44 tokens).
+  La interfaz es oscura por convención de las herramientas de vídeo: el contenido
+  que se va a emitir es el protagonista, no el cromo de la aplicación.
+*/
+
+@theme {
+  /* Superficies: escala neutra oscura, de la más honda a la más elevada */
+  --color-base: #0e1113;
+  --color-inset: #090b0d;
+  --color-surface: #14181b;
+  --color-raised: #1b2126;
+  --color-hover: #232b31;
+
+  /* Bordes */
+  --color-line: #242c31;
+  --color-line-strong: #36434b;
+
+  /* Texto */
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #ffffffcc;
+  --color-text-muted: #ffffff80;
+  --color-text-faint: #ffffff4d;
+
+  /* Marca */
+  --color-brand: #0ab7b8;
+  --color-brand-dim: #07898a;
+  --color-brand-wash: #0ab7b81f;
+
+  /* Estado */
+  --color-success: #3fbf6a;
+  --color-warning: #e8a33d;
+  --color-info: #4a9ee8;
+  --color-danger: #e5544b;
+
+  /* Tipografía */
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+
+  /* Radios */
+  --radius-panel: 10px;
+  --radius-control: 6px;
+}
+
+html,
+body {
+  background: var(--color-base);
+  color: var(--color-text-primary);
+}
+
+body {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-brand);
+  color: #04211f;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-brand);
+  outline-offset: 2px;
+}
+
+/* Barras de scroll dentro de los paneles de la herramienta */
+.panel-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-line-strong) transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
